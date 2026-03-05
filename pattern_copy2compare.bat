@@ -20,11 +20,32 @@ xcopy "%pth1%" "%pth2%" /E /I /Y /Q /H /K /O /X
 echo === Copy Complete ===
 goto :eof
 
+:: -------------------------------------------------------------------------
+:: [setlocal]
+:: Scope Control: Localizes environment variables within the script. 
+:: Just like the curly braces { } in C, it defines a local scope. 
+:: Usually paired with 'endlocal' to ensure variables are discarded 
+:: after execution, preventing global environment pollution.
+
+:: [enabledelayedexpansion]
+:: Dynamic Evaluation: Prevents "Pre-parsing" issues where variable values 
+:: are frozen upon entering a loop. Much like the 'volatile' keyword in C, 
+:: it forces the shell to fetch the most recent value at runtime. 
+:: You must use !var! instead of %var% to access these dynamic updates.
+:: -------------------------------------------------------------------------
 :compare_pattern
 setlocal enabledelayedexpansion
 set "root1=%pth1%"
 set "root2=%pth2%"
 
+:: -------------------------------------------------------------------------
+:: [Double Quotes ""] : Path Protection. Ensures %pth1% is treated as a single 
+::                      complete path even if it contains spaces.
+:: [usebackq]         : Rule Change. Enables the use of backticks ( ` ) to 
+::                      treat the string as an "executable command" instead of literal text.
+:: [delims=]          : Disable Delimiters. Disables the default space-splitting 
+::                      behavior to ensure %%f captures the full file path.
+:: -------------------------------------------------------------------------
 @REM for /f "usebackq delims=" %%f in ("a_full_path_list.txt") do (
 for /f "usebackq delims=" %%f in (`dir /b /s "%pth1%"`) do (
     set "full_path=%%f"

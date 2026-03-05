@@ -2,9 +2,9 @@
 
 This repository contains two Windows batch scripts designed to provide file copy, structure comparison, and simple multi-command demonstrations in the console.
 
-## 📄 Files 1
+## Files 1
 ### pattern_copy2compare.bat
-## ⚙️ Features
+## Features
 
 - Recursively copies files and folders from a **source path** to a **destination path**.
 - Generates **relative path lists** to verify structure consistency.
@@ -14,7 +14,7 @@ This repository contains two Windows batch scripts designed to provide file copy
 - Outputs clear **PASS** or **FAIL** results.
 - Skips folder content comparison automatically.
 
-## 🚀 Usage
+## Usage
 
 ### Command format
 
@@ -25,10 +25,10 @@ pattern_copy2compare.bat "SourcePath" "DestinationPath"
 ```
 ---
 
-## 📄 Files 2
+## Files 2
 ### sayhi.bat
 
-## ⚙️ Features
+## Features
 
 A demo batch script that supports multiple options:
 - `-hello`: Print "hello".
