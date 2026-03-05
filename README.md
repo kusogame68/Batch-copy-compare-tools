@@ -19,8 +19,6 @@ This repository contains two Windows batch scripts designed to provide file copy
 ### Command format
 
 ```cmd
-### pattern_copy2compare.bat
-
 pattern_copy2compare.bat "SourcePath" "DestinationPath"
 ```
 ---
